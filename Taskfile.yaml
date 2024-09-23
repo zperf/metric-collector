@@ -3,8 +3,14 @@ version: '3'
 tasks:
   default:
     deps:
-      - build
+      - fast-build
+
+  fast-build:
+    cmds:
+      - go build -o bin/push-exporter main.go
 
   build:
     cmds:
-      - go build -o bin/linux-amd64/push-exporter main.go
+      - GOOS=linux GOARCH=amd64 go build -o bin/linux-amd64/push-exporter main.go
+      - GOOS=linux GOARCH=arm64 go build -o bin/linux-arm64/push-exporter main.go
+      - GOOS=darwin GOARCH=arm64 go build -o bin/darwin-arm64/push-exporter main.go

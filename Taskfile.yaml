@@ -7,10 +7,13 @@ tasks:
 
   fast-build:
     cmds:
-      - go build -o bin/push-exporter main.go
+      - go build -o bin/metric-collector .
 
-  build:
+  clean:
     cmds:
-      - GOOS=linux GOARCH=amd64 go build -o bin/linux-amd64/push-exporter main.go
-      - GOOS=linux GOARCH=arm64 go build -o bin/linux-arm64/push-exporter main.go
-      - GOOS=darwin GOARCH=arm64 go build -o bin/darwin-arm64/push-exporter main.go
+      - rm -rf ./bin/
+
+  rpm:
+    dir: rpm/
+    cmds:
+      - task rpm

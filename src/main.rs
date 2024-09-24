@@ -1,15 +1,13 @@
 use crate::Commands::Run;
-use anyhow::{anyhow, Error, Result};
+use anyhow::Result;
 use clap::{Args, Parser, Subcommand};
 use reqwest::StatusCode;
-use std::iter::{zip, Zip};
+use std::iter::zip;
 use std::time::Duration;
 use tokio::select;
 use tokio::task::JoinSet;
-use tokio::time::error::Elapsed;
 use tokio_util::sync::CancellationToken;
 use tracing::error;
-use tracing_subscriber::fmt::time;
 
 #[derive(Parser)]
 #[command(arg_required_else_help = true)]

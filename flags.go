@@ -55,17 +55,17 @@ var flagPushTo = &cli.StringFlag{
 
 var flagCollectInterval = &cli.DurationFlag{
 	Name:  "collect-interval",
-	Value: 3 * time.Second,
+	Value: 10 * time.Second,
 }
 
 var flagCollectTimeout = &cli.DurationFlag{
 	Name:  "collect-timeout",
-	Value: 1 * time.Second,
+	Value: 9 * time.Second,
 }
 
 var flagPushTimeout = &cli.DurationFlag{
 	Name:  "push-timeout",
-	Value: 10 * time.Second,
+	Value: 3 * time.Second,
 }
 
 type collectConfig struct {

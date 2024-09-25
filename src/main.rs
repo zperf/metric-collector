@@ -93,7 +93,7 @@ async fn worker(config: RunConfig) {
                 let code = rsp.status();
                 if code != StatusCode::OK {
                     let body = rsp.text().await?;
-                    error!("push failed, status code: {}, body: {}", code, body);
+                    error!("push failed, status code: {}, body: {}", code, body.trim_end());
                 }
             }
             Ok(())

@@ -30,13 +30,13 @@ struct RunConfig {
     #[arg(long, short, default_value_t = hostname::get().unwrap().into_string().unwrap())]
     instance: String,
 
-    #[arg(long, short)]
+    #[arg(long, short, required = true)]
     jobs: Vec<String>,
 
-    #[arg(long, short)]
+    #[arg(long, short, required = true)]
     sources: Vec<String>,
 
-    #[arg(long, short)]
+    #[arg(long, short, required = true)]
     targets: Vec<String>,
 }
 

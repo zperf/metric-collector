@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+includes:
+  rpm: ./rpm
+
+tasks:
+  default:
+    deps:
+      - build
+
+  build:
+    cmds:
+      - cargo build --target-dir bin
+
+  release:
+    cmds:
+      - cargo build --release --target-dir bin
+
+  clean:
+    cmds:
+      - rm -rf ./bin
